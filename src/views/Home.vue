@@ -1,18 +1,41 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div class="cover">
+      <img :src="coverImage" class="coverStyle"/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
+// import HelloWorld from "@/components/HelloWorld.vue";
+// import { getCover } from "../api/http.js";
 export default {
   name: "home",
-  components: {
-    HelloWorld
+  data () {
+    return {
+      coverImage:"",
+    }
+  },
+  methods: {
+    
+  },
+  mounted () {
+    this.$api.getCover.getCoverImage(1).then(res=>{
+      // console.log(res)
+      let ran = parseInt(Math.random()*7)
+      this.coverImage = res.data.banners[ran].imageUrl
+    })
   }
 };
 </script>
+
+<style lang="scss">
+.cover{
+  width:200px;
+  height: 200px;
+  .coverStyle {
+    width:200px;
+    height:100px;
+  }
+}
+
+</style>
