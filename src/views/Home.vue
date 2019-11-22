@@ -1,7 +1,5 @@
 <template>
-  <div class="cover">
-      
-  </div>
+  <div class="cover"></div>
 </template>
 
 <script>
@@ -10,15 +8,11 @@
 // import { getCover } from "../api/http.js";
 export default {
   name: "home",
-  data () {
-    return {
-      
-    }
+  data() {
+    return {};
   },
-  methods: {
-    
-  },
-  mounted () {
+  methods: {},
+  mounted() {
     // this.$api.getCover.getCoverImage().then(res=>{
     //   // console.log(res)
     //   let ran = parseInt(Math.random()*7)
@@ -29,13 +23,9 @@ export default {
 </script>
 
 <style lang="scss">
-.cover{
-  width:100%;
-  height:100%;
-  .coverStyle {
-    width:100%;
-    height:100%;
-  }
+.cover {
+  width: 2.5rem;
+  height: 3.75rem;
+  background: red;
 }
-
 </style>

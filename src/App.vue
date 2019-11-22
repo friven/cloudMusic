@@ -5,17 +5,14 @@
 </template>
 
 <script>
-  export default{
-    data () {
-      return {
-        
-      }
-    },
-    mounted () {
-      this.$router.push({name:"home"}).catch(() =>{})
-    }
+export default {
+  data() {
+    return {};
+  },
+  mounted() {
+    this.$router.push({ name: "home" }).catch(() => {});
   }
-
+};
 </script>
 
 <style lang="scss">
