@@ -1,6 +1,6 @@
 <template>
   <div class="cover">
-      <img :src="coverImage" class="coverStyle"/>
+      
   </div>
 </template>
 
@@ -12,29 +12,29 @@ export default {
   name: "home",
   data () {
     return {
-      coverImage:"",
+      
     }
   },
   methods: {
     
   },
   mounted () {
-    this.$api.getCover.getCoverImage(1).then(res=>{
-      // console.log(res)
-      let ran = parseInt(Math.random()*7)
-      this.coverImage = res.data.banners[ran].imageUrl
-    })
+    // this.$api.getCover.getCoverImage().then(res=>{
+    //   // console.log(res)
+    //   let ran = parseInt(Math.random()*7)
+    //   this.coverImage = res.data.banners[ran].imageUrl
+    // })
   }
 };
 </script>
 
 <style lang="scss">
 .cover{
-  width:200px;
-  height: 200px;
+  width:100%;
+  height:100%;
   .coverStyle {
-    width:200px;
-    height:100px;
+    width:100%;
+    height:100%;
   }
 }
 

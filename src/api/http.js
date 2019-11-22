@@ -9,8 +9,8 @@ let instance = axios.create({
 // eslint-disable-next-line no-console
 console.log(process.env.VUE_APP_BASEURL);
 const getCover = {
-  getCoverImage(params) {
-    return instance.get("/banner/type=", params);
+  getCoverImage() {
+    return instance.get("/banner");
   }
 };
 
