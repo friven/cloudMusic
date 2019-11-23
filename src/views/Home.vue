@@ -4,7 +4,9 @@
     <div class="mainTab">
       <span class="menuStyle iconfont iconcaidan" @click="popMsg"></span>
       <van-tabs swipeable line-height="0" v-model="active" animated>
-        <van-tab title="我的">1111</van-tab>
+        <van-tab title="我的">
+          <Myhome></Myhome>
+        </van-tab>
         <van-tab title="发现">1111</van-tab>
         <van-tab title="朋友">1111</van-tab>
         <van-tab title="视频">1111</van-tab>
@@ -26,8 +28,12 @@
 
 <script>
 // @ is an alias to /src
+import Myhome from "./myhome/index";
 export default {
   name: "home",
+  components: {
+    Myhome
+  },
   data() {
     return {
       active: "1", //tab页index

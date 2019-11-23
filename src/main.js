@@ -9,6 +9,7 @@ import "lib-flexible/flexible";
 import "./assets/font/iconfont.css";
 
 Vue.use(Vant);
+
 Vue.prototype.$api = Api; //在vue上挂载api
 
 new Vue({
