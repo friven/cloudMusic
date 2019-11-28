@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import axios from "axios";
 
 // 创建axios实例
@@ -17,3 +18,14 @@ const getCover = {
 export default {
   getCover
 };
+
+// export function getCodeData() {
+//   return axios({
+//     url: `/api/captcha/sent?phone=18855492161`,
+//     method: "get"
+//   });
+// }
+
+// getCodeData().then(res => {
+//   console.log(res);
+// });
