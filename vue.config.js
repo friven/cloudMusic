@@ -32,7 +32,7 @@ module.exports = {
     disableHostCheck: true,
     proxy: {
       "/api": {
-        target: "http://123.57.174.24:3000", //对应跨域的接口
+        target: "http://123.57.174.24:3000/api", //对应跨域的接口
         changeOrigin: true,
         ws: false,
         pathRewrite: {
