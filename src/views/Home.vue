@@ -3,7 +3,7 @@
   <div class="home">
     <div class="mainTab">
       <span class="menuStyle iconfont iconcaidan" @click="popMsg"></span>
-      <van-tabs swipeable line-height="0" v-model="active" animated>
+      <van-tabs swipeable line-height="0" sticky v-model="active" animated>
         <van-tab title="我的">
           <Myhome></Myhome>
         </van-tab>

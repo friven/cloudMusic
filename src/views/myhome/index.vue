@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="serch">
+    <div class="serch" @scroll="scrollEvent">
       <ul class="serch_nav">
         <li class="serch_nav_cener" v-for="(item, index) in list" :key="index">
           <div class="serch_nav_cener_yuan"></div>
@@ -21,11 +21,22 @@ export default {
       list: [{}, {}, {}, {}, {}, {}, {}, {}]
     };
   },
-  mounted() {
-    // eslint-disable-next-line no-console
-    console.log(33);
-  },
-  methods: {}
+  mounted() {},
+  methods: {
+    scrollEvent(e) {
+      // if(e.scrollLeft==)
+      // eslint-disable-next-line no-console
+      console.log(e);
+      // eslint-disable-next-line no-console
+      console.log(e.srcElement.scrollWidth);
+      // eslint-disable-next-line no-console
+      console.log(e.srcElement.scrollLeft);
+
+      if (e.srcElement.scrollLeft > e.srcElement.scrollWidth) {
+        e.preventDefault();
+      }
+    }
+  }
 };
 </script>
 
