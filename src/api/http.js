@@ -25,7 +25,7 @@ export default {
 
 // export function getCodeData(data) {
 //   return axios({
-//     url: `/api/login`,
+//     url: `/api//login/cellphone`,
 //     method: "post",
 //     data
 //   });
