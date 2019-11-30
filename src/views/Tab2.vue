@@ -67,10 +67,16 @@ export default {
         if (deltaX > 0) {
           //判断动作 是左滑还是右滑
           // eslint-disable-next-line no-redeclare
-          var offsetWidth = 0;
+          var offsetWidth = Math.min(
+            0,
+            Math.max(-window.innerWidth, left + deltaX)
+          );
         } else {
           // eslint-disable-next-line no-redeclare
-          var offsetWidth = -window.innerWidth;
+          var offsetWidth = Math.min(
+            -window.innerWidth,
+            Math.max(-window.innerWidth * 2, left + deltaX)
+          );
         }
       } else {
         // eslint-disable-next-line no-redeclare
@@ -93,17 +99,17 @@ export default {
       let percent;
       //当前为红色，滑动占比小于-0.1则切换，否则回到原位置
       if (this.active === 0) {
-        if (this.percent < -0.1) {
+        if (this.percent < -0.5) {
           this.active = 1;
           offsetWidth = -window.innerWidth;
         } else {
           offsetWidth = 0;
         }
       } else if (this.active === 1) {
-        if (this.percent > 0.1) {
+        if (this.percent > 0.5) {
           this.active = 0;
           offsetWidth = 0;
-        } else if (this.percent < -0.1) {
+        } else if (this.percent < -0.5) {
           this.active = 2;
           offsetWidth = -window.innerWidth * 2;
         } else {
@@ -111,7 +117,7 @@ export default {
         }
       } else {
         //当前为黄色，滑动占比大于0.5则切换，否则回到原位置
-        if (this.percent > 0.1) {
+        if (this.percent > 0.5) {
           this.active = 1;
           offsetWidth = -window.innerWidth;
         } else {
