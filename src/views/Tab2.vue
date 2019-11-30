@@ -97,7 +97,7 @@ export default {
     touchEnd() {
       let offsetWidth;
       let percent;
-      //当前为红色，滑动占比小于-0.1则切换，否则回到原位置
+      //当前为红色，滑动占比小于-0.5则切换，否则回到原位置
       if (this.active === 0) {
         if (this.percent < -0.5) {
           this.active = 1;
@@ -141,6 +141,7 @@ export default {
       }
       //这里的transform是针对最开始的位置而言，而不是移动过程中的位置
       this.$refs.back.style["transform"] = `translate3d(${offsetWidth}px,0,0)`;
+      this.$refs.back.style["transitionDuration"] = 10;
     }
   }
 };
