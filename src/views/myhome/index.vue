@@ -32,7 +32,7 @@ export default {
       // eslint-disable-next-line no-console
       console.log(e.srcElement.scrollLeft);
 
-      if (e.srcElement.scrollLeft > e.srcElement.scrollWidth) {
+      if (e.srcElement.scrollLeft > 270) {
         e.preventDefault();
       }
     }
@@ -65,7 +65,7 @@ export default {
         width: 1.125rem;
         height: 1.125rem;
         border-radius: 50%;
-        background: red;
+        background: #ddd;
       }
     }
   }

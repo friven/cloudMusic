@@ -29,6 +29,7 @@
 <script>
 // @ is an alias to /src
 import Myhome from "./myhome/index";
+
 export default {
   name: "home",
   components: {
@@ -48,7 +49,9 @@ export default {
       console.log(this.show);
     }
   },
-  mounted() {}
+  mounted() {
+    // this.$router.push("tab");
+  }
 };
 </script>
 
@@ -88,8 +91,6 @@ export default {
     }
     .searchStyle:before {
       line-height: 1.1875rem;
-    }
-    .van-tabs__content {
     }
   }
 }
