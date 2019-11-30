@@ -20,10 +20,6 @@ const routes = [
     component: () => import("../views/Tab.vue")
   },
   {
-    path: "/tab2",
-    component: () => import("../views/Tab2.vue")
-  },
-  {
     path: "/myhome",
     component: () => import("@/views/myhome/index.vue")
   },

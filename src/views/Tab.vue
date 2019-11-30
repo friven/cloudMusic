@@ -33,7 +33,6 @@ export default {
   data() {
     return {
       active: 0,
-      currentPlay: "red",
       percent: 0,
       arrs: ["red", "blue", "yellow"],
       //   startx starty为初始手指触摸点
@@ -55,13 +54,14 @@ export default {
       if (Math.abs(deltaY) > Math.abs(deltaX)) {
         return;
       }
-      if (this.currentPlay == "red") {
+
+      if (this.active == 0) {
         var left = 0;
         var offsetWidth = Math.min(
           0,
           Math.max(-window.innerWidth, left + deltaX)
         );
-      } else if (this.currentPlay == "blue") {
+      } else if (this.active == 1) {
         // eslint-disable-next-line no-redeclare
         var left = -window.innerWidth;
         if (deltaX > 0) {
@@ -97,22 +97,19 @@ export default {
     touchEnd() {
       let offsetWidth;
       let percent;
-      //当前为红色，滑动占比小于-0.1则切换，否则回到原位置
-      if (this.currentPlay === "red") {
-        if (this.percent < -0.1) {
-          this.currentPlay = "blue";
+      //当前为红色，滑动占比小于-0.5则切换，否则回到原位置
+      if (this.active === 0) {
+        if (this.percent < -0.5) {
           this.active = 1;
           offsetWidth = -window.innerWidth;
         } else {
           offsetWidth = 0;
         }
-      } else if (this.currentPlay === "blue") {
-        if (this.percent > 0.1) {
+      } else if (this.active === 1) {
+        if (this.percent > 0.5) {
           this.active = 0;
-          this.currentPlay = "red";
           offsetWidth = 0;
-        } else if (this.percent < -0.1) {
-          this.currentPlay = "yellow";
+        } else if (this.percent < -0.5) {
           this.active = 2;
           offsetWidth = -window.innerWidth * 2;
         } else {
@@ -120,8 +117,7 @@ export default {
         }
       } else {
         //当前为黄色，滑动占比大于0.5则切换，否则回到原位置
-        if (this.percent > 0.1) {
-          this.currentPlay = "blue";
+        if (this.percent > 0.5) {
           this.active = 1;
           offsetWidth = -window.innerWidth;
         } else {
@@ -136,18 +132,16 @@ export default {
       this.active = index;
       if (index == 0) {
         var offsetWidth = 0;
-        this.currentPlay = "red";
       } else if (index == 1) {
         // eslint-disable-next-line no-redeclare
         var offsetWidth = -window.innerWidth;
-        this.currentPlay = "blue";
       } else if (index == 2) {
-        this.currentPlay = "yellow";
         // eslint-disable-next-line no-redeclare
         var offsetWidth = -window.innerWidth * 2;
       }
       //这里的transform是针对最开始的位置而言，而不是移动过程中的位置
       this.$refs.back.style["transform"] = `translate3d(${offsetWidth}px,0,0)`;
+      this.$refs.back.style["transitionDuration"] = 10;
     }
   }
 };
